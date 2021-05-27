@@ -45,7 +45,7 @@ namespace G4HE.Views.Print
                 index++;
             }
             index++;
-            Console.SetCursorPosition(Left + 2, Top + index);
+            Console.SetCursorPosition(Left = 0, Top + index);
         }
 
         private static void DrawMenuOptionsNoNumbers(IEnumerable<string> options)
@@ -58,7 +58,7 @@ namespace G4HE.Views.Print
                 index++;
             }
             index++;
-            Console.SetCursorPosition(Left + 2, Top + index);
+            Console.SetCursorPosition(Left = 0, Top + index);
         }
     }
 }

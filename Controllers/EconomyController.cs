@@ -3,6 +3,7 @@ using G4HE.Views;
 using G4HE.Views.Logotypes;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using System;
+using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
 namespace G4HE.Controllers
 {
@@ -18,10 +19,7 @@ namespace G4HE.Controllers
         {
             SetIncome();
             SetExpenditure();
-            Display.TotalIncome(BC.TotalIncome());
-            Display.TotalExpenditure(BC.TotalExpenses());
-            Display.Savings();
-            Display.MoneyLeft(BC.MoneyLeft());
+            Display.ShowResult(BC.TotalIncome(), BC.TotalExpenses(),999, BC.MoneyLeft());
         }
 
         private void SetIncome()
@@ -32,7 +30,7 @@ namespace G4HE.Controllers
             do
             {
                 FillInForm("income");
-                //BC.Income.Add(new Income(name, tag, amount));
+                BC._Income.Add(new Income(name, tag, amount));
                 KeepGoing("income");
             } while (_continue == "yes");
         }
@@ -45,13 +43,11 @@ namespace G4HE.Controllers
             do
             {
                 FillInForm("expenditure");
-                //BC.Expenditures.Add(new Expenditure(name, tag, amount));
+                BC._Expenditures.Add(new Expenditure(name, tag, amount));
                 KeepGoing("expenditure");
             } while (_continue == "yes");
         }
-
-       
-
+        
         private void FillInForm(string type)
         {
             Console.Write("Name: ");

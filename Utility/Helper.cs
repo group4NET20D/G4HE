@@ -43,7 +43,7 @@ namespace G4HE.Utility
 
         private static void Error()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Error, something went wrong. Try again.");
             Thread.Sleep(1300);
             Console.ResetColor();
