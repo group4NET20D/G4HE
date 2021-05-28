@@ -2,7 +2,6 @@
 using G4HE.Views;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using System;
-using G4HE.Mock;
 using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
