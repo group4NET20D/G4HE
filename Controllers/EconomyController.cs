@@ -13,7 +13,8 @@ namespace G4HE.Controllers
         private string name;
         private string tag;
         private float amount;
-        string _continue;
+        private string _continue;
+        private int index;
 
         public void Questionnaire()
         {
@@ -24,35 +25,47 @@ namespace G4HE.Controllers
 
         private void SetIncome()
         {
-            Console.Clear();
-            Logo.SetIncome();
-            Display.GiveExampleOf("income", "CSN", "Fixed", 10000);
+            index = 1;
             do
             {
-                FillInForm("income");
+                FillInForm("income", index);
                 BC._Income.Add(new Income(name, tag, amount));
                 KeepGoing("income");
+                index++;
             } while (_continue == "yes");
         }
 
         private void SetExpenditure()
         {
-            Console.Clear();
-            Logo.SetExpenditure();
-            Display.GiveExampleOf("expenditure", "Rent", "Fixed", 6000);
+            index = 1;
             do
             {
-                FillInForm("expenditure");
+                FillInForm("expenditure", index);
                 BC._Expenditures.Add(new Expenditure(name, tag, amount));
                 KeepGoing("expenditure");
+                index++;
             } while (_continue == "yes");
         }
 
-        private void FillInForm(string type)
+        private void FillInForm(string type, int index)
         {
-            Console.Write("Name: ");
-            name = Console.ReadLine()?.Trim();
+            Console.Clear();
+            DecideFormType(type, index);
+            GetName();
+            GetFixedOrUnexpected(type);
+            GetAmount();
+        }
 
+        private void GetName()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("Name: ");
+            Console.ResetColor();
+            name = Console.ReadLine()?.Trim();
+        }
+
+        private void GetFixedOrUnexpected(string type)
+        {
             Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2) ");
             var input = Helper.GetUserInputWithOption(2);
 
@@ -66,9 +79,28 @@ namespace G4HE.Controllers
                 Console.WriteLine("Tag = \"Unexpected\"");
                 tag = "Unexpected";
             }
-
-            Console.Write("Amount:");
+        }
+       
+        private void GetAmount()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("Amount: ");
+            Console.ResetColor();
             amount = Helper.GetUserInputNoOption(int.MaxValue);
+        }
+
+        private static void DecideFormType(string type, int index)
+        {
+            if (type is "income" && index is 1)
+            {
+                Logo.SetIncome();
+                Display.GiveExampleOf("income", "CSN", "Fixed", 10000);
+            }
+            else if (type is "expenditure" && index is 1)
+            {
+                Logo.SetExpenditure();
+                Display.GiveExampleOf("expenditure", "Rent", "Fixed", 6000);
+            }
         }
 
         private void KeepGoing(string type)
@@ -78,13 +110,15 @@ namespace G4HE.Controllers
             var loop = true;
             do
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write("Option: ");
                 _continue = Console.ReadLine()?.ToLower().Trim();
                 if (_continue == "no")
                 {
                     loop = false;
                     break;
                 }
-                else if(_continue == "yes")
+                else if (_continue == "yes")
                 {
                     loop = false;
                     continue;
