@@ -75,25 +75,25 @@ namespace G4HE.Controllers
         {
             Console.WriteLine($"\nAdd more {type}?");
             Console.WriteLine("\"Yes\" / \"No\"");
-            var keepGoing = true;
+            var loop = true;
             do
             {
                 _continue = Console.ReadLine()?.ToLower().Trim();
                 if (_continue == "no")
                 {
-                    keepGoing = false;
+                    loop = false;
                     break;
                 }
                 else if(_continue == "yes")
                 {
+                    loop = false;
                     continue;
-                    keepGoing = false;
                 }
                 else
                 {
                     Console.WriteLine("Input not recognized. Try again.");
                 }
-            } while (keepGoing);
+            } while (loop);
         }
     }
 }
