@@ -32,7 +32,7 @@ namespace G4HE.Controllers
             if (failExpenses.Count > 0) { Display.ShowFailedExpense(failExpenses); }
             else
             {
-                Display.ShowResult(BudgetCalculation.TotalIncome(), BudgetCalculation.TotalExpenses(), 999, BudgetCalculation.MoneyLeft());
+                Display.ShowResult();
             }
         }
 

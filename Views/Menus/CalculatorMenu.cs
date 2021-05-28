@@ -39,7 +39,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 Console.Write($"   Expenses: {BudgetCalculation._Expenditures}");
                 Thread.Sleep(1500);
-                Console.Write($"   Savings: {BudgetCalculation.Saving}");
+                Console.Write($"   Savings: {BudgetCalculation._Saving}");
                 Thread.Sleep(1500);
                 Console.WriteLine();
                 Console.WriteLine("\n                                       " + $"Your total money left: {BudgetCalculation._MoneyLeft}!");
