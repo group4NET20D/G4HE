@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary.csproj" />
+    <ProjectReference Include="..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary.csproj" />
   </ItemGroup>
+
+
 
 </Project>
