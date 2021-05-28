@@ -19,14 +19,14 @@ namespace G4HE.Controllers
         {
             SetIncome();
             SetExpenditure();
-            Display.ShowResult(BC.TotalIncome(), BC.TotalExpenses(),999, BC.MoneyLeft());
+            Display.ShowResult(BC.TotalIncome(), BC.TotalExpenses(), 999, BC.MoneyLeft());
         }
 
         private void SetIncome()
         {
             Console.Clear();
             Logo.SetIncome();
-            Display.GiveExampleOf("income","CSN", "Fixed", 10000);
+            Display.GiveExampleOf("income", "CSN", "Fixed", 10000);
             do
             {
                 FillInForm("income");
@@ -39,7 +39,7 @@ namespace G4HE.Controllers
         {
             Console.Clear();
             Logo.SetExpenditure();
-            Display.GiveExampleOf("expenditure","Rent", "Fixed", 6000);
+            Display.GiveExampleOf("expenditure", "Rent", "Fixed", 6000);
             do
             {
                 FillInForm("expenditure");
@@ -47,7 +47,7 @@ namespace G4HE.Controllers
                 KeepGoing("expenditure");
             } while (_continue == "yes");
         }
-        
+
         private void FillInForm(string type)
         {
             Console.Write("Name: ");
@@ -84,12 +84,15 @@ namespace G4HE.Controllers
                     keepGoing = false;
                     break;
                 }
-                else if (_continue == "yes")
+                else if(_continue == "yes")
                 {
                     continue;
+                    keepGoing = false;
                 }
-
-                Console.WriteLine("Input not recognized. Try again.");
+                else
+                {
+                    Console.WriteLine("Input not recognized. Try again.");
+                }
             } while (keepGoing);
         }
     }
