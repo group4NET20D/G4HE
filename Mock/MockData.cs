@@ -12,7 +12,7 @@ namespace G4HE.Mock
             try
             {
                 //var budget = new BudgetCalculation();
-                Income income = new Income("Fixed", "Salary", 14500F);
+                var income = new Income("Salary", "Fixed",  14500F);
                 return true;
             }
             catch (Exception e)
@@ -28,18 +28,18 @@ namespace G4HE.Mock
             {
                 List<Expenditure> expenditure = new()
                 {
-                    new Expenditure("Fixed", "Rent", 8900),
-                    new Expenditure("Fixed", "Netflix", 89),
-                    new Expenditure("Fixed", "Mobile", 99),
-                    new Expenditure("Fixed", "Broadband", 199),
-                    new Expenditure("Fixed", "Food", 1200),
-                    new Expenditure("Fixed", "Consumables", 600),
-                    new Expenditure("Fixed", "Bank cost", 45),
-                    new Expenditure("Fixed", "Pensions", 1000),
-                    new Expenditure("Fixed", "Gym", 350),
-                    new Expenditure("Fixed", "Home insurance", 75),
+                    new Expenditure("Rent", "Fixed", 8900),
+                    new Expenditure("Netflix", "Fixed", 89),
+                    new Expenditure("Mobile", "Fixed", 99),
+                    new Expenditure("Broadband", "Fixed", 199),
+                    new Expenditure( "Food", "Fixed", 1200),
+                    new Expenditure( "Consumables", "Fixed", 600),
+                    new Expenditure( "Bank cost", "Fixed", 45),
+                    new Expenditure( "Pensions", "Fixed", 1000),
+                    new Expenditure( "Gym", "Fixed", 350),
+                    new Expenditure( "Home insurance", "Fixed", 75),
                     new Expenditure("Saving", "Saving", 0.1F),
-                    new Expenditure("Unexpected", "Pizza", 0.25F)
+                    new Expenditure( "Pizza", "Unexpected", 0.25F)
                 };
                 return true;
             }

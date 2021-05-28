@@ -6,9 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="G4privateEconomyClassLibrary">
-      <HintPath>..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\bin\Debug\net5.0\G4privateEconomyClassLibrary.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary.csproj" />
   </ItemGroup>
 
 </Project>
