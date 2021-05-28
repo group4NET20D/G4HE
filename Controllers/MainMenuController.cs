@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using G4HE.Utility;
-using G4HE.Views.Logotypes;
 using G4HE.Views.Print;
 
 namespace G4HE.Controllers
 {
+    /// <summary>
+    /// Controller that controls the main menu.
+    /// </summary>
     public static class MainMenuController
     {
         private static EconomyController EC = new();
@@ -21,6 +23,10 @@ namespace G4HE.Controllers
             MenuOptions(userInput);
         }
 
+        /// <summary>
+        /// Lets user choose between to begin the questionnaire or to exit the application.
+        /// </summary>
+        /// <param name="userInput"></param>
         private static void MenuOptions(int userInput)
         {
             switch (userInput)

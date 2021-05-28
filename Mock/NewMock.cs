@@ -6,13 +6,19 @@ using G4privateEconomyClassLibrary.Interfaces;
 
 namespace G4HE.Mock
 {
+    /// <summary>
+    /// Creates mock income and expenses.
+    /// </summary>
     public class NewMock
     {
+        /// <summary>
+        /// Creates mock income that is enough to pay the bills.
+        /// </summary>
+        /// <returns>true if method succeeded.</returns>
         public bool MockIncomeSuccess()
         {
             try
             {
-                //var budget = new BudgetCalculation();
                 List<IIncome> income = new()
                 {
                     new Income("Salary", "Fixed", 14500F)
@@ -28,6 +34,10 @@ namespace G4HE.Mock
             }
         }
 
+        /// <summary>
+        /// Creates mock income that is NOT enough to pay the bills.
+        /// </summary>
+        /// <returns>true if method succeeded.</returns>
         public bool MockIncomeFail()
         {
             try
@@ -48,6 +58,10 @@ namespace G4HE.Mock
             }
         }
 
+        /// <summary>
+        /// Creates mock expenditure.
+        /// </summary>
+        /// <returns>true if method succeeded.</returns>
         public bool MockExpenditures()
         {
             try

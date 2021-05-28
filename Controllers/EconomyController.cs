@@ -1,9 +1,9 @@
 ﻿using G4HE.Utility;
 using G4HE.Views;
-using G4HE.Views.Logotypes;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using System;
 using G4HE.Mock;
+using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
 namespace G4HE.Controllers
@@ -100,18 +100,23 @@ namespace G4HE.Controllers
 
         /// <summary>
         /// Refactoring.
-        /// Sets the tag to 
+        /// Sets the tag to of the income/expenditure.
         /// </summary>
         /// <param name="type"></param>
         private void GetTag(string type)
         {
-            Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2) ");
-            var input = Helper.GetUserInputWithOption(2);
+            Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2) / \"Saving\" = (3)");
+            var input = Helper.GetUserInputWithOption(3);
 
             if (input == 1)
             {
                 Console.WriteLine("Tag = \"Fixed\"");
                 tag = "Fixed";
+            }
+            else if (input == 2)
+            {
+                Console.WriteLine("Tag = \"Saving\"");
+                tag = "Unexpected";
             }
             else
             {
@@ -120,11 +125,20 @@ namespace G4HE.Controllers
             }
         }
 
+        /// <summary>
+        /// Refactoring.
+        /// Sets the amount of the income/expenditure.
+        /// </summary>
         private void GetAmount()
         {
             amount = Helper.GetUserInputNoOption(int.MaxValue, "Amount");
         }
 
+        /// <summary>
+        /// Refactoring.
+        /// Sets the type of form to be shown to user.
+        /// Type = income / expenditure.
+        /// </summary>
         private static void DecideFormType(string type, int index)
         {
             switch (type)
@@ -146,6 +160,10 @@ namespace G4HE.Controllers
             }
         }
 
+        /// <summary>
+        /// Asks the user if he/her wants to add more income / expenditure.
+        /// </summary>
+        /// <param name="type">income or expenditure.</param>
         private void KeepGoing(string type)
         {
             Console.WriteLine($"\nAdd more {type}?");

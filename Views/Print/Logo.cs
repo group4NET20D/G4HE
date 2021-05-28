@@ -1,7 +1,13 @@
 ﻿using System;
 
-namespace G4HE.Views.Logotypes
+namespace G4HE.Views.Print
 {
+    /// <summary>
+    /// Ascii-texts used as logotypes.
+    /// Text font used: Doom.
+    /// Character width and height: Default.
+    /// Website used: http://patorjk.com/software/taag/#p=display&f=Doom&t=Type%20Something%20
+    /// </summary>
     public static class Logo
     {
         public static void MainMenu()
