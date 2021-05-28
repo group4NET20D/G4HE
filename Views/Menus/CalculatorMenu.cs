@@ -5,12 +5,12 @@ using G4privateEconomyClassLibrary.EconomyPlanner;
 namespace G4HE.Views.Menus
 {
     /// <summary>
-    /// 
+    /// This class contains a menu method that prints out values for the user.
     /// </summary>
     public static class CalculatorMenu
     {
         /// <summary>
-        /// 
+        /// This method prints out the income, expenses, savings and money left.
         /// </summary>
         public static void Menu()
         {
