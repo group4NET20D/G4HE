@@ -7,6 +7,10 @@ using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
 namespace G4HE.Controllers
 {
+    /// <summary>
+    /// Responsible for controlling the way the user interacts
+    /// with the MVC application.
+    /// </summary>
     public class EconomyController
     {
         private BudgetCalculation BC = new();
@@ -16,46 +20,67 @@ namespace G4HE.Controllers
         private string _continue;
         private int index;
 
+        /// <summary>
+        /// Asks the user to fill in forms for
+        /// income & expenditure. Than displays the totals
+        /// money saved and money left.
+        /// </summary>
         public void Questionnaire()
         {
             SetIncome();
             SetExpenditure();
+            //Fixa rätt inputs till metoden
             Display.ShowResult(BC.TotalIncome(), BC.TotalExpenses(), 999, BC.MoneyLeft());
         }
 
+        /// <summary>
+        /// Prompts user to fill in a form for his/her income.
+        /// </summary>
         private void SetIncome()
         {
             index = 1;
             do
             {
-                FillInForm("income", index);
+                FillInForm("income");
                 BC._Income.Add(new Income(name, tag, amount));
                 KeepGoing("income");
                 index++;
             } while (_continue == "yes");
         }
 
+        /// <summary>
+        /// Prompts user to fill in a form for his/her expenditure.
+        /// </summary>
         private void SetExpenditure()
         {
             index = 1;
             do
             {
-                FillInForm("expenditure", index);
+                FillInForm("expenditure");
                 BC._Expenditures.Add(new Expenditure(name, tag, amount));
                 KeepGoing("expenditure");
                 index++;
             } while (_continue == "yes");
         }
 
-        private void FillInForm(string type, int index)
+        /// <summary>
+        /// Refactoring.
+        /// Asks users to fill in the form.
+        /// </summary>
+        /// <param name="type"></param>
+        private void FillInForm(string type)
         {
             Console.Clear();
             DecideFormType(type, index);
             GetName();
-            GetFixedOrUnexpected(type);
+            GetTag(type);
             GetAmount();
         }
 
+        /// <summary>
+        /// Refactoring.
+        /// Gets the name of the income/expenditure.
+        /// </summary>
         private void GetName()
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -64,7 +89,12 @@ namespace G4HE.Controllers
             name = Console.ReadLine()?.Trim();
         }
 
-        private void GetFixedOrUnexpected(string type)
+        /// <summary>
+        /// Refactoring.
+        /// Sets the tag to 
+        /// </summary>
+        /// <param name="type"></param>
+        private void GetTag(string type)
         {
             Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2) ");
             var input = Helper.GetUserInputWithOption(2);
@@ -80,7 +110,7 @@ namespace G4HE.Controllers
                 tag = "Unexpected";
             }
         }
-       
+
         private void GetAmount()
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -91,15 +121,22 @@ namespace G4HE.Controllers
 
         private static void DecideFormType(string type, int index)
         {
-            if (type is "income" && index is 1)
+            switch (type)
             {
-                Logo.SetIncome();
-                Display.GiveExampleOf("income", "CSN", "Fixed", 10000);
-            }
-            else if (type is "expenditure" && index is 1)
-            {
-                Logo.SetExpenditure();
-                Display.GiveExampleOf("expenditure", "Rent", "Fixed", 6000);
+                case "income" when index is 1:
+                    Logo.SetIncome();
+                    Display.GiveExampleOf("income", "CSN", "Fixed", 10000);
+                    break;
+                case "expenditure" when index is 1:
+                    Logo.SetExpenditure();
+                    Display.GiveExampleOf("expenditure", "Rent", "Fixed", 6000);
+                    break;
+                case "income":
+                    Logo.SetIncome();
+                    break;
+                default:
+                    Logo.SetExpenditure();
+                    break;
             }
         }
 
@@ -115,13 +152,11 @@ namespace G4HE.Controllers
                 _continue = Console.ReadLine()?.ToLower().Trim();
                 if (_continue == "no")
                 {
-                    loop = false;
                     break;
                 }
                 else if (_continue == "yes")
                 {
                     loop = false;
-                    continue;
                 }
                 else
                 {
