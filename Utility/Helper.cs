@@ -26,16 +26,17 @@ namespace G4HE.Utility
             return Number;
         }
 
-        internal static int GetUserInputNoOption( int maxOptions)
+        internal static int GetUserInputNoOption(int maxOptions, string optionTag)
         {
             Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write($"{optionTag}: ");
             Console.ResetColor();
             Input = Console.ReadLine()?.Trim().ToLower();
             Success = TryParse(Input, out Number);
             if (!Success || Number > maxOptions || Number <= 0)
             {
                 Error();
-                GetUserInputNoOption(maxOptions);
+                GetUserInputNoOption(maxOptions, optionTag);
             }
             Console.ResetColor();
             return Number;
@@ -44,7 +45,7 @@ namespace G4HE.Utility
         private static void Error()
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("Error, something went wrong. Try again.");
+            Console.WriteLine("Error, wrong input. Try again.");
             Thread.Sleep(1300);
             Console.ResetColor();
         }

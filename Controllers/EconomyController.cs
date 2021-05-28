@@ -113,10 +113,7 @@ namespace G4HE.Controllers
 
         private void GetAmount()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write("Amount: ");
-            Console.ResetColor();
-            amount = Helper.GetUserInputNoOption(int.MaxValue);
+            amount = Helper.GetUserInputNoOption(int.MaxValue, "Amount");
         }
 
         private static void DecideFormType(string type, int index)
