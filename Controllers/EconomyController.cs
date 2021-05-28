@@ -30,7 +30,7 @@ namespace G4HE.Controllers
             SetIncome();
             SetExpenditure();
             //Fixa rätt inputs till metoden
-            Display.ShowResult(BC.TotalIncome(), BC.TotalExpenses(), 999, BC.MoneyLeft());
+            Display.ShowResult(BudgetCalculation.TotalIncome(), BC.TotalExpenses(), 999, BC.MoneyLeft());
         }
 
         /// <summary>
@@ -113,10 +113,7 @@ namespace G4HE.Controllers
 
         private void GetAmount()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write("Amount: ");
-            Console.ResetColor();
-            amount = Helper.GetUserInputNoOption(int.MaxValue);
+            amount = Helper.GetUserInputNoOption(int.MaxValue, "Amount");
         }
 
         private static void DecideFormType(string type, int index)
