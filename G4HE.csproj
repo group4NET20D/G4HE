@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary.csproj" />
+    <Reference Include="G4privateEconomyClassLibrary">
+      <HintPath>..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\bin\Debug\net5.0\G4privateEconomyClassLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

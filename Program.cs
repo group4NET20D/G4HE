@@ -7,12 +7,12 @@ namespace G4HE
 {
     class Program
     {
-         //static void Main(string[] args) => MainMenuController.Menu();
-        static void Main(string[] args) => Nicklas();
+        //static void Main(string[] args) => MainMenuController.Menu();
+        static void Main(string[] args) => Julia();
 
         private static void Julia()
         {
-            var BC  = new BudgetCalculation();
+            var BC = new BudgetCalculation();
             var mock = new NewMock();
             var testData = mock.MockIncome();
             Console.WriteLine($"Money lft this month: {BC.MoneyLeft()} ");
