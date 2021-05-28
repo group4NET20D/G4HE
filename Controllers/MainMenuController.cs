@@ -10,7 +10,7 @@ namespace G4HE.Controllers
     /// </summary>
     public static class MainMenuController
     {
-        private static EconomyController EC = new();
+        private static readonly EconomyController EC = new();
 
         public static void Menu()
         {

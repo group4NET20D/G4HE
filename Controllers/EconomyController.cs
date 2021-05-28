@@ -29,6 +29,7 @@ namespace G4HE.Controllers
             SetIncome();
             SetExpenditure();
             var failExpenses = BudgetCalculation.ExpenseChecker();
+            BudgetCalculation._Saving.Amount = BudgetCalculation.Savings();
             if (failExpenses.Count > 0) { Display.ShowFailedExpense(failExpenses); }
             else
             {
@@ -167,6 +168,7 @@ namespace G4HE.Controllers
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write("Option: ");
+                Console.ResetColor();
                 _continue = Console.ReadLine()?.ToLower().Trim();
                 if (_continue == "no")
                 {

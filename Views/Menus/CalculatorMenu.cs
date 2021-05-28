@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 
@@ -35,17 +36,18 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
                                   ");
-                Console.Write("                              " + $"Income: {BudgetCalculation._Income}");
+                Console.Write("                              " + $"Income: {BudgetCalculation._Income.Sum(i=>i.Amount)}");
                 Thread.Sleep(1500);
-                Console.Write($"   Expenses: {BudgetCalculation._Expenditures}");
+                Console.Write($"   Expenses: {BudgetCalculation._Expenditures.Sum(e=>e.Amount)}");
                 Thread.Sleep(1500);
-                Console.Write($"   Savings: {BudgetCalculation._Saving}");
+                Console.Write($"   Savings: {BudgetCalculation._Saving.Amount}");
                 Thread.Sleep(1500);
                 Console.WriteLine();
                 Console.WriteLine("\n                                       " + $"Your total money left: {BudgetCalculation._MoneyLeft}!");
                 Thread.Sleep(1500);
                 Console.WriteLine("\n                                    Enter a key to exit the application...");
                 Console.ReadLine();
+                Console.ResetColor();
             }
         }
     }

@@ -3,6 +3,7 @@ using G4privateEconomyClassLibrary.EconomyPlanner;
 using G4privateEconomyClassLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
+using G4HE.Views.Menus;
 
 namespace G4HE.Views
 {
@@ -17,11 +18,11 @@ namespace G4HE.Views
         public static void ShowResult()
         {
             Console.Clear();
-            TotalIncome();
-            TotalExpenditure();
-            Savings();
-            MoneyLeft();
-
+            CalculatorMenu.Menu();
+            //TotalIncome();
+            //TotalExpenditure();
+            //Savings();
+            //MoneyLeft();
         }
 
         /// <summary>
