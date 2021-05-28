@@ -14,7 +14,6 @@ namespace G4HE.Controllers
     /// </summary>
     public class EconomyController
     {
-        private BudgetCalculation BC = new();
         private string name;
         private string tag;
         private float amount;
@@ -28,13 +27,9 @@ namespace G4HE.Controllers
         /// </summary>
         public void Questionnaire()
         {
-            //SetIncome();
-            //SetExpenditure();
-            var md = new NewMock();
-           // md.MockIncomeSuccess();
-            md.MockIncomeFail();
-            md.MockExpenditures();
-            var failExpenses = BC.ExpenseChecker();
+            SetIncome();
+            SetExpenditure();
+            var failExpenses = BudgetCalculation.ExpenseChecker();
             if (failExpenses.Count > 0) { Display.ShowFailedExpense(failExpenses); }
             else
             {
