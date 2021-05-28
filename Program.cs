@@ -8,15 +8,15 @@ namespace G4HE
     class Program
     {
         //static void Main(string[] args) => MainMenuController.Menu();
-        static void Main(string[] args) => Julia();
+        static void Main(string[] args) => Nicklas();
 
         private static void Julia()
         {
             var BC = new BudgetCalculation();
             var mock = new NewMock();
-            mock.MockIncome();
+            mock.MockIncomeSuccess();
             mock.MockExpenditures();
-            Console.WriteLine($"Money lft this month: {BC.MoneyLeft()} ");
+            Console.WriteLine($"Money lft this month: {BudgetCalculation.MoneyLeft()} ");
 
         }
 

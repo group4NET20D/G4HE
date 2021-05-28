@@ -8,7 +8,7 @@ namespace G4HE.Mock
 {
     public class NewMock
     {
-        public bool MockIncome()
+        public bool MockIncomeSuccess()
         {
             try
             {
@@ -19,8 +19,26 @@ namespace G4HE.Mock
                 };
 
                 BudgetCalculation._Income.AddRange(income);
-                //BudgetCalculation.Income.AddRange(income);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Logger.Log(e);
+                return false;
+            }
+        }
 
+        public bool MockIncomeFail()
+        {
+            try
+            {
+                //var budget = new BudgetCalculation();
+                List<IIncome> income = new()
+                {
+                    new Income("Salary", "Fixed", 1450F)
+                };
+
+                BudgetCalculation._Income.AddRange(income);
                 return true;
             }
             catch (Exception e)

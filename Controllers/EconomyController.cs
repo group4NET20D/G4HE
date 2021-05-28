@@ -3,6 +3,7 @@ using G4HE.Views;
 using G4HE.Views.Logotypes;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using System;
+using G4HE.Mock;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
 namespace G4HE.Controllers
@@ -27,10 +28,18 @@ namespace G4HE.Controllers
         /// </summary>
         public void Questionnaire()
         {
-            SetIncome();
-            SetExpenditure();
-            //Fixa rätt inputs till metoden
-            Display.ShowResult(BudgetCalculation.TotalIncome(), BC.TotalExpenses(), 999, BC.MoneyLeft());
+            //SetIncome();
+            //SetExpenditure();
+            var md = new NewMock();
+           // md.MockIncomeSuccess();
+            md.MockIncomeFail();
+            md.MockExpenditures();
+            var failExpenses = BC.ExpenseChecker();
+            if (failExpenses.Count > 0) { Display.ShowFailedExpense(failExpenses); }
+            else
+            {
+                Display.ShowResult(BudgetCalculation.TotalIncome(), BudgetCalculation.TotalExpenses(), 999, BudgetCalculation.MoneyLeft());
+            }
         }
 
         /// <summary>

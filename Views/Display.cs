@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using G4HE.Views.Print;
+using G4privateEconomyClassLibrary.EconomyPlanner;
+using G4privateEconomyClassLibrary.Interfaces;
 
 namespace G4HE.Views
 {
@@ -65,5 +67,20 @@ namespace G4HE.Views
             });
         }
 
+
+        public static void ShowFailedExpense(List<IExpenditure> failExpenses)
+        {
+            foreach (var income in BudgetCalculation._Income)
+            {
+                Console.WriteLine($"Income: {income.Name} {income.Amount}");
+            }
+
+            foreach (var expense in failExpenses )
+            {
+                Console.WriteLine($"Failed to pay: {expense.Name} {expense.Amount}");
+            }
+
+            Console.WriteLine($"Money left: {BudgetCalculation._MoneyLeft}");
+        }
     }
 }
