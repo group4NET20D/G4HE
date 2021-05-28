@@ -2,6 +2,7 @@
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 using System;
 using System.Collections.Generic;
+using G4privateEconomyClassLibrary.Interfaces;
 
 namespace G4HE.Mock
 {
@@ -12,7 +13,14 @@ namespace G4HE.Mock
             try
             {
                 //var budget = new BudgetCalculation();
-                var income = new Income("Salary", "Fixed", 14500F);
+                List<IIncome> income = new()
+                {
+                    new Income("Salary", "Fixed", 14500F)
+                };
+
+                BudgetCalculation._Income.AddRange(income);
+                //BudgetCalculation.Income.AddRange(income);
+
                 return true;
             }
             catch (Exception e)
@@ -26,7 +34,7 @@ namespace G4HE.Mock
         {
             try
             {
-                List<Expenditure> expenditure = new()
+                List<IExpenditure> expenditure = new()
                 {
                     new Expenditure("Rent", "Fixed", 8900),
                     new Expenditure("Netflix", "Fixed", 89),
@@ -41,6 +49,7 @@ namespace G4HE.Mock
                     new Expenditure("Saving", "Saving", 0.1F),
                     new Expenditure("Pizza", "Unexpected", 0.25F)
                 };
+                BudgetCalculation._Expenditures.AddRange(expenditure);
                 return true;
             }
             catch (Exception e)

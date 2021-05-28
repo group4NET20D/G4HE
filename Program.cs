@@ -14,7 +14,8 @@ namespace G4HE
         {
             var BC = new BudgetCalculation();
             var mock = new NewMock();
-            var testData = mock.MockIncome();
+            mock.MockIncome();
+            mock.MockExpenditures();
             Console.WriteLine($"Money lft this month: {BC.MoneyLeft()} ");
 
         }
