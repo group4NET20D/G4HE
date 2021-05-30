@@ -64,9 +64,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     }
                 }
                 Thread.Sleep(1500);
-                Console.WriteLine($"\n                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.Savings()}kr");
+                Console.WriteLine($"\n                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.GetSavings()}kr");
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.UnexpectedExpenses()}kr");
+                Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.GetUnexpectedExpenses()}kr");
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    Money left for pizza: {BudgetCalculation._MoneyLeft}kr!");
                 Thread.Sleep(1500);
