@@ -29,7 +29,7 @@ namespace G4HE.Controllers
         {
             SetIncome();
             SetExpenditure();
-            CalculateResults();
+            BudgetCalculation.PayBills();
             SetValues(out var totalIncome, out var totalExpenses, out var moneyLeft, out var saving, out var unexpectedExpense);
             LogResults(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
         }
@@ -183,13 +183,6 @@ namespace G4HE.Controllers
         {
             Logger.LogReport(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
             Display.ShowResult();
-        }
-
-        private static void CalculateResults()
-        {
-            BudgetCalculation.PayBills();
-            BudgetCalculation.CalculateSavings();
-            BudgetCalculation.CalculateUnexpectedExpenses();
         }
 
         private static void SetValues(out float totalIncome, out float totalExpenses, out float moneyLeft, out float saving,
