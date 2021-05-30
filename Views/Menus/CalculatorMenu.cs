@@ -45,6 +45,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
                 if (BudgetCalculation._PaidExpenses.Count > 0)
                 {
+                    Console.WriteLine($"                                    Paid expenses:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._PaidExpenses)
                     {
@@ -55,9 +56,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 }
 
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    Failed to pay:");
                 if (BudgetCalculation._FailedExpenses.Count > 0)
                 {
+                    Console.WriteLine($"                                    Failed to pay:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._FailedExpenses)
                     {
@@ -71,9 +72,8 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    Money left for pizza: {BudgetCalculation._MoneyLeft}kr!");
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    Paid expenses:");
 
-               
+
 
                 Console.WriteLine("\n                                    Enter a key to exit the application...");
                 Console.ResetColor();
