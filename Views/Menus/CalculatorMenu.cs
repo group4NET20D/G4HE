@@ -43,7 +43,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
                 if (BudgetCalculation._PaidExpenses.Count > 0)
                 {
-                    Console.WriteLine($"                                    \nPaid expenses:");
+                    Console.WriteLine($"\n                                    Paid expenses:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._PaidExpenses)
                     {
@@ -56,7 +56,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 if (BudgetCalculation._FailedExpenses.Count > 0)
                 {
-                    Console.WriteLine($"                                    \nFailed to pay:");
+                    Console.WriteLine($"\n                                    Failed to pay:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._FailedExpenses)
                     {
@@ -64,9 +64,9 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     }
                 }
                 Thread.Sleep(1500);
-                Console.WriteLine($"\n                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.Savings()}kr");
+                Console.WriteLine($"\n                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.GetSavings()}kr");
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.UnexpectedExpenses()}kr");
+                Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.GetUnexpectedExpenses()}kr");
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    Money left for pizza: {BudgetCalculation._MoneyLeft}kr!");
                 Thread.Sleep(1500);
