@@ -40,16 +40,19 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 Console.WriteLine($"   Expenses: {BudgetCalculation.TotalExpenses()}kr");
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    Savings: {BudgetCalculation.Savings()}kr");
+                Console.WriteLine($"                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.Savings()}kr");
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    Money put away for unexpected expenses: {BudgetCalculation.UnexpectedExpenses()}kr");
+                Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.UnexpectedExpenses()}kr");
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    Money left for pizza: {BudgetCalculation._MoneyLeft}kr!");
                 Thread.Sleep(1500);
                 Console.WriteLine("\n                                    Enter a key to exit the application...");
-                Console.ReadLine();
                 Console.ResetColor();
+                Console.ReadKey();
+                break;
             }
+
+            Environment.Exit(0);
         }
     }
 }

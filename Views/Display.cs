@@ -22,8 +22,7 @@ namespace G4HE.Views
         }
 
         /// <summary>
-        /// Refactored.
-        ///  Displays an example of how to fill in the expense- / income form.
+        ///  Displays an example of how to fill in the expense- / income form with tag.
         /// </summary>
         /// <param name="type">Income/expenditure.</param>
         /// <param name="name">Name of the income/expenditure.</param>
@@ -43,23 +42,50 @@ namespace G4HE.Views
         }
 
         /// <summary>
+        ///  Displays an example of how to fill in the expense- / income form without tag.
+        /// </summary>
+        /// <param name="type">Income/expenditure.</param>
+        /// <param name="name">Name of the income/expenditure.</param>
+        /// <param name="amount">Amount of money.</param>
+        public static void GiveExampleOf(string type, string name, float amount)
+        {
+            DrawFrames.DisplayMenuNoNumbers(new List<string>
+            {
+                $"To enter your {type} you",
+                "will need to provide:",
+                "Examples:",
+                $"Name: \"{name}\"",
+                $"Amount: \"{amount}\"\n"
+            });
+        }
+
+        /// <summary>
         /// Displays all the expenses that the user could
         /// not afford to pay.
         /// </summary>
         /// <param name="failExpenses">List of expenses not paid.</param>
         public static void ShowFailedExpense(IEnumerable<IExpenditure> failExpenses)
         {
-            foreach (var income in BudgetCalculation._Income)
+            if (failExpenses != null)
             {
-                Console.WriteLine($"Income: {income.Name} {income.Amount}");
-            }
+                Console.WriteLine("Income:\n");
+                var index = 1;
+                foreach (var income in BudgetCalculation._Income)
+                {
+                    Console.WriteLine($"{index}: {income.Name} {income.Amount}");
+                    index++;
+                }
 
-            foreach (var expense in failExpenses )
-            {
-                Console.WriteLine($"Failed to pay: {expense.Name} {expense.Amount}");
-            }
+                Console.WriteLine("Failed to pay:\n");
+                index = 1;
+                foreach (var expense in failExpenses)
+                {
+                    Console.WriteLine($"{index}: {expense.Name} {expense.Amount}");
+                    index++;
+                }
 
-            Console.WriteLine($"Money left: {BudgetCalculation._MoneyLeft}");
+                Console.WriteLine($"Money left: {BudgetCalculation._MoneyLeft}");
+            }
         }
     }
 }

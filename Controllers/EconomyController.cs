@@ -4,7 +4,9 @@ using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using G4privateEconomyClassLibrary.Interfaces;
 
 namespace G4HE.Controllers
 {
@@ -29,27 +31,13 @@ namespace G4HE.Controllers
         {
             SetIncome();
             SetExpenditure();
-            var failExpenses = BudgetCalculation.ExpenseChecker();
-            BudgetCalculation.CalculatedExpenses();
-            BudgetCalculation._Saving.Amount = BudgetCalculation.Savings();
-            var totalIncome = BudgetCalculation._Income.Sum(i => i.Amount);
-            var totalExpenses = BudgetCalculation._Expenditures.Sum(e => e.Amount);
-            var moneyLeft = BudgetCalculation._MoneyLeft;
-            var saving = BudgetCalculation._Saving.Amount;
-            var unexpectedExpense = BudgetCalculation._UnexpectedExpense.Amount;
-            Logger.LogReport(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
-            if (failExpenses.Count > 0)
-            {
-                Display.ShowFailedExpense(failExpenses); // fix
-            }
-            else
-            {
-                Display.ShowResult();
-            }
+            CalculateResults();
+            SetValues(out var totalIncome, out var totalExpenses, out var moneyLeft, out var saving, out var unexpectedExpense);
+            LogResults(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
         }
 
         /// <summary>
-        /// Prompts user to fill in a form for his/her income.
+        /// Prompts user to fill in a form for income.
         /// </summary>
         private void SetIncome()
         {
@@ -64,7 +52,7 @@ namespace G4HE.Controllers
         }
 
         /// <summary>
-        /// Prompts user to fill in a form for his/her expenditure.
+        /// Prompts user to fill in a form for expenditure.
         /// </summary>
         private void SetExpenditure()
         {
@@ -111,18 +99,19 @@ namespace G4HE.Controllers
         /// <param name="type"></param>
         private void GetTag(string type)
         {
-            Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2)");
+            if (type == "income") { return; }
+            Console.WriteLine($"Is the {type} \"Priority\" = (1) / \"Non Essential\" (2)");
             var input = Helper.GetUserInputWithOption(2);
 
             if (input == 1)
             {
-                Console.WriteLine("Tag = \"Fixed\"");
-                tag = "Fixed";
+                Console.WriteLine("Tag = \"Priority\"");
+                tag = "Priority";
             }
             else
             {
-                Console.WriteLine("Tag = \"Unexpected\"");
-                tag = "Unexpected";
+                Console.WriteLine("Tag = \"Non Essential\"");
+                tag = "Non Essential";
             }
         }
 
@@ -146,11 +135,11 @@ namespace G4HE.Controllers
             {
                 case "income" when index is 1:
                     Logo.SetIncome();
-                    Display.GiveExampleOf("income", "CSN", "Fixed", 10000);
+                    Display.GiveExampleOf("income", "CSN", 10000);
                     break;
                 case "expenditure" when index is 1:
                     Logo.SetExpenditure();
-                    Display.GiveExampleOf("expenditure", "Rent", "Fixed", 6000);
+                    Display.GiveExampleOf("expenditure", "Rent", "Priority", 6000);
                     break;
                 case "income":
                     Logo.SetIncome();
@@ -189,6 +178,36 @@ namespace G4HE.Controllers
                     Console.WriteLine("Input not recognized. Try again.");
                 }
             } while (loop);
+        }
+
+        private static void LogResults(float totalIncome, float totalExpenses, float saving, float unexpectedExpense,
+            float moneyLeft)
+        {
+            Logger.LogReport(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
+            if (BudgetCalculation._FailedExpenses.Count > 0)
+            {
+                Display.ShowFailedExpense(BudgetCalculation._FailedExpenses);
+            }
+            else
+            {
+                Display.ShowResult();
+            }
+        }
+
+        private static void CalculateResults()
+        {
+            BudgetCalculation.PayBills();
+            BudgetCalculation.CalculateUnexpectedAndSavings();
+        }
+
+        private static void SetValues(out float totalIncome, out float totalExpenses, out float moneyLeft, out float saving,
+            out float unexpectedExpense)
+        {
+            totalIncome = BudgetCalculation._Income.Sum(i => i.Amount);
+            totalExpenses = BudgetCalculation._Expenditures.Sum(e => e.Amount);
+            moneyLeft = BudgetCalculation._MoneyLeft;
+            saving = BudgetCalculation._Saving.Amount;
+            unexpectedExpense = BudgetCalculation._UnexpectedExpense.Amount;
         }
     }
 }
