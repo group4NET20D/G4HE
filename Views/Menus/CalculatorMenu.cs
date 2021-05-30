@@ -36,11 +36,13 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
                                   ");
-                Console.Write("                              " + $"Income: {BudgetCalculation._Income.Sum(i=>i.Amount)}");
+                Console.Write("                              " + $"Income: {BudgetCalculation.TotalIncome()}");
                 Thread.Sleep(1500);
-                Console.Write($"   Expenses: {BudgetCalculation._Expenditures.Sum(e=>e.Amount)}");
+                Console.Write($"   Expenses: {BudgetCalculation.TotalExpenses()}");
                 Thread.Sleep(1500);
-                Console.Write($"   Savings: {BudgetCalculation._Saving.Amount}");
+                Console.Write($"   Savings: {BudgetCalculation.Savings()}");
+                Thread.Sleep(1500);
+                Console.Write($"   Savings: {BudgetCalculation.CalculateUnexpectedExpenses()}");
                 Thread.Sleep(1500);
                 Console.WriteLine();
                 Console.WriteLine("\n                                       " + $"Your total money left: {BudgetCalculation._MoneyLeft}!");

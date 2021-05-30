@@ -19,58 +19,6 @@ namespace G4HE.Views
         {
             Console.Clear();
             CalculatorMenu.Menu();
-            //TotalIncome();
-            //TotalExpenditure();
-            //Savings();
-            //MoneyLeft();
-        }
-
-        /// <summary>
-        /// Displays the total entered income.
-        /// </summary>
-        /// <param name="totalIncome">Total income entered into the program.</param>
-        public static void TotalIncome()
-        {
-            DrawFrames.DisplayMenuNoNumbers(new List<string>
-            {
-                $"The total of your income is: {BudgetCalculation._Income}"
-            });
-        }
-
-        /// <summary>
-        /// Displays the total entered expenses.
-        /// </summary>
-        /// <param name="totalExpenses">Total expenses entered into the program.</param>
-        public static void TotalExpenditure()
-        {
-            DrawFrames.DisplayMenuNoNumbers(new List<string>
-            {
-                $"The total of your expenses is: {BudgetCalculation._Expenditures}"
-            });
-        }
-
-        /// <summary>
-        /// Displays the amount that was put into savings after expenses were paid.
-        /// </summary>
-        /// <param name="savings">Total saving.</param>
-        public static void Savings()
-        {
-            DrawFrames.DisplayMenuNoNumbers(new List<string>
-            {
-                $"The total of your savings is: {BudgetCalculation._Saving}"
-            });
-        }
-
-        /// <summary>
-        /// Displays the money left in the account balance.
-        /// </summary>
-        /// <param name="moneyLeft">Total money left.</param>
-        public static void MoneyLeft()
-        {
-            DrawFrames.DisplayMenuNoNumbers(new List<string>
-            {
-                $"The amount of money you have left: {BudgetCalculation._MoneyLeft}"
-            });
         }
 
         /// <summary>
