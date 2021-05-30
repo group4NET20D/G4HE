@@ -2,6 +2,7 @@
 using G4HE.Views;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using System;
+using System.Linq;
 using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
@@ -30,11 +31,17 @@ namespace G4HE.Controllers
             SetExpenditure();
             var failExpenses = BudgetCalculation.ExpenseChecker();
             BudgetCalculation._Saving.Amount = BudgetCalculation.Savings();
+            var totalIncome = BudgetCalculation._Income.Sum(i => i.Amount);
+            var totalExpenses = BudgetCalculation._Expenditures.Sum(e => e.Amount);
+            var saving = BudgetCalculation._Saving.Amount;
+            var moneyLeft = BudgetCalculation._MoneyLeft;
             if (failExpenses.Count > 0) { Display.ShowFailedExpense(failExpenses); }
             else
             {
+                Logger.LogReport(totalIncome, totalExpenses, saving, moneyLeft);
                 Display.ShowResult();
             }
+
         }
 
         /// <summary>
