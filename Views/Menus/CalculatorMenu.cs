@@ -43,7 +43,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
                 if (BudgetCalculation._PaidExpenses.Count > 0)
                 {
-                    Console.WriteLine($"                                    \nPaid expenses:");
+                    Console.WriteLine($"\n                                    Paid expenses:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._PaidExpenses)
                     {
@@ -56,7 +56,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 if (BudgetCalculation._FailedExpenses.Count > 0)
                 {
-                    Console.WriteLine($"                                    \nFailed to pay:");
+                    Console.WriteLine($"\n                                    Failed to pay:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._FailedExpenses)
                     {
