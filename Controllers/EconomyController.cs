@@ -2,6 +2,7 @@
 using G4HE.Views;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using System;
+using System.Linq;
 using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
@@ -30,7 +31,15 @@ namespace G4HE.Controllers
             SetExpenditure();
             var failExpenses = BudgetCalculation.ExpenseChecker();
             BudgetCalculation._Saving.Amount = BudgetCalculation.Savings();
-            if (failExpenses.Count > 0) { Display.ShowFailedExpense(failExpenses); }
+            var totalIncome = BudgetCalculation._Income.Sum(i => i.Amount);
+            var totalExpenses = BudgetCalculation._Expenditures.Sum(e => e.Amount);
+            var saving = BudgetCalculation._Saving.Amount;
+            var moneyLeft = BudgetCalculation._MoneyLeft;
+            Logger.LogReport(totalIncome, totalExpenses, saving, moneyLeft);
+            if (failExpenses.Count > 0)
+            {
+                Display.ShowFailedExpense(failExpenses);
+            }
             else
             {
                 Display.ShowResult();
@@ -102,22 +111,38 @@ namespace G4HE.Controllers
         {
             Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2) / \"Saving\" = (3)");
             var input = Helper.GetUserInputWithOption(3);
-
-            if (input == 1)
+            if (type == "expenditure")
             {
-                Console.WriteLine("Tag = \"Fixed\"");
-                tag = "Fixed";
-            }
-            else if (input == 2)
-            {
-                Console.WriteLine("Tag = \"Saving\"");
-                tag = "Unexpected";
+                if (input == 1)
+                {
+                    Console.WriteLine("Tag = \"Fixed\"");
+                    tag = "Fixed";
+                }
+                else if (input == 2)
+                {
+                    Console.WriteLine("Tag = \"Unexpected\"");
+                    tag = "Unexpected";
+                }
+                else
+                {
+                    Console.WriteLine("Tag = \"Saving\"");
+                    tag = "Saving";
+                }
             }
             else
             {
-                Console.WriteLine("Tag = \"Unexpected\"");
-                tag = "Unexpected";
+                if (input == 1)
+                {
+                    Console.WriteLine("Tag = \"Fixed\"");
+                    tag = "Fixed";
+                }
+                else
+                {
+                    Console.WriteLine("Tag = \"Unexpected\"");
+                    tag = "Unexpected";
+                }
             }
+            
         }
 
         /// <summary>

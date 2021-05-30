@@ -10,7 +10,7 @@ namespace G4HE.Controllers
     /// </summary>
     public static class MainMenuController
     {
-        private static readonly EconomyController EC = new();
+        private static readonly EconomyController Ec = new();
 
         public static void Menu()
         {
@@ -32,7 +32,7 @@ namespace G4HE.Controllers
             switch (userInput)
             {
                 case 1:
-                    EC.Questionnaire();
+                    Ec.Questionnaire();
                     break;
                 case 2:
                     Environment.Exit(0);
