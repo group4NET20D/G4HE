@@ -1,9 +1,7 @@
-﻿using G4HE.Views.Print;
-using G4privateEconomyClassLibrary.EconomyPlanner;
-using G4privateEconomyClassLibrary.Interfaces;
+﻿using G4HE.Views.Menus;
+using G4HE.Views.Print;
 using System;
 using System.Collections.Generic;
-using G4HE.Views.Menus;
 
 namespace G4HE.Views
 {
@@ -57,35 +55,6 @@ namespace G4HE.Views
                 $"Name: \"{name}\"",
                 $"Amount: \"{amount}\"\n"
             });
-        }
-
-        /// <summary>
-        /// Displays all the expenses that the user could
-        /// not afford to pay.
-        /// </summary>
-        /// <param name="failExpenses">List of expenses not paid.</param>
-        public static void ShowFailedExpense(IEnumerable<IExpenditure> failExpenses)
-        {
-            if (failExpenses != null)
-            {
-                Console.WriteLine("Income:\n");
-                var index = 1;
-                foreach (var income in BudgetCalculation._Income)
-                {
-                    Console.WriteLine($"{index}: {income.Name} {income.Amount}");
-                    index++;
-                }
-
-                Console.WriteLine("Failed to pay:\n");
-                index = 1;
-                foreach (var expense in failExpenses)
-                {
-                    Console.WriteLine($"{index}: {expense.Name} {expense.Amount}");
-                    index++;
-                }
-
-                Console.WriteLine($"Money left: {BudgetCalculation._MoneyLeft}");
-            }
         }
     }
 }

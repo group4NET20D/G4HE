@@ -184,14 +184,7 @@ namespace G4HE.Controllers
             float moneyLeft)
         {
             Logger.LogReport(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
-            if (BudgetCalculation._FailedExpenses.Count > 0)
-            {
-                Display.ShowFailedExpense(BudgetCalculation._FailedExpenses);
-            }
-            else
-            {
-                Display.ShowResult();
-            }
+            Display.ShowResult();
         }
 
         private static void CalculateResults()

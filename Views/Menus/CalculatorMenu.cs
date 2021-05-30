@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using System.Threading.Channels;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 
 namespace G4HE.Views.Menus
@@ -10,6 +11,7 @@ namespace G4HE.Views.Menus
     /// </summary>
     public static class CalculatorMenu
     {
+        private static int index;
         /// <summary>
         /// This method prints out the income, expenses, savings and money left.
         /// </summary>
@@ -40,12 +42,39 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 Console.WriteLine($"   Expenses: {BudgetCalculation.TotalExpenses()}kr");
                 Thread.Sleep(1500);
+
+                if (BudgetCalculation._PaidExpenses.Count > 0)
+                {
+                    index = 1;
+                    foreach (var bill in BudgetCalculation._PaidExpenses)
+                    {
+                        Console.WriteLine($"                                    {index}: {bill.Name} {bill.Amount}kr");
+                        index++;
+                    }
+
+                }
+
+                Thread.Sleep(1500);
+                Console.WriteLine($"                                    Failed to pay:");
+                if (BudgetCalculation._FailedExpenses.Count > 0)
+                {
+                    index = 1;
+                    foreach (var bill in BudgetCalculation._FailedExpenses)
+                    {
+                        Console.WriteLine($"                                    {index}: {bill.Name} {bill.Amount}kr");
+                    }
+                }
+                Thread.Sleep(1500);
                 Console.WriteLine($"                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.Savings()}kr");
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.UnexpectedExpenses()}kr");
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    Money left for pizza: {BudgetCalculation._MoneyLeft}kr!");
                 Thread.Sleep(1500);
+                Console.WriteLine($"                                    Paid expenses:");
+
+               
+
                 Console.WriteLine("\n                                    Enter a key to exit the application...");
                 Console.ResetColor();
                 Console.ReadKey();
