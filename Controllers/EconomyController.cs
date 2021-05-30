@@ -1,10 +1,10 @@
 ﻿using G4HE.Utility;
 using G4HE.Views;
+using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner;
+using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 using System;
 using System.Linq;
-using G4HE.Views.Print;
-using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 
 namespace G4HE.Controllers
 {
@@ -30,17 +30,17 @@ namespace G4HE.Controllers
             SetIncome();
             SetExpenditure();
             var failExpenses = BudgetCalculation.ExpenseChecker();
-            var moneyLeft = BudgetCalculation._MoneyLeft;
             BudgetCalculation.CalculatedExpenses();
             BudgetCalculation._Saving.Amount = BudgetCalculation.Savings();
             var totalIncome = BudgetCalculation._Income.Sum(i => i.Amount);
             var totalExpenses = BudgetCalculation._Expenditures.Sum(e => e.Amount);
+            var moneyLeft = BudgetCalculation._MoneyLeft;
             var saving = BudgetCalculation._Saving.Amount;
             var unexpectedExpense = BudgetCalculation._UnexpectedExpense.Amount;
             Logger.LogReport(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);
             if (failExpenses.Count > 0)
             {
-                Display.ShowFailedExpense(failExpenses);
+                Display.ShowFailedExpense(failExpenses); // fix
             }
             else
             {
@@ -111,8 +111,8 @@ namespace G4HE.Controllers
         /// <param name="type"></param>
         private void GetTag(string type)
         {
-            Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2) / \"Saving\" = (3)");
-            var input = Helper.GetUserInputWithOption(3);
+            Console.WriteLine($"Is the {type} \"Fixed\" = (1) / \"Unexpected\" (2)");
+            var input = Helper.GetUserInputWithOption(2);
 
             if (input == 1)
             {
