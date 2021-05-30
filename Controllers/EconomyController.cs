@@ -4,9 +4,7 @@ using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using G4privateEconomyClassLibrary.Interfaces;
 
 namespace G4HE.Controllers
 {
