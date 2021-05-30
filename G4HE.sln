@@ -5,9 +5,14 @@ VisualStudioVersion = 16.0.31313.381
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G4HE", "G4HE.csproj", "{7179D757-B22A-458C-BA8A-F56720F99742}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G4privateEconomyClassLibrary", "..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary.csproj", "{D7C0C397-7C37-44E8-93EC-A3999D27F43B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G4HETest", "..\G4HETest\G4HETest.csproj", "{B99B5AE7-F488-4F35-982B-B1EA176FD9E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G4HETest", "..\G4HETest\G4HETest.csproj", "{768DC942-B1DE-4B29-B22B-F62A1E92E38F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G4privateEconomyClassLibrary", "..\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary\G4privateEconomyClassLibrary.csproj", "{699E9F93-D1BC-499B-B864-6722B95EBC9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E8CE1AA-EDFE-4138-B814-47FF45FF33D4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Dokument\Utbildning\.NET\TDD\Inlämning 2\G4HE_tests.xlsx = ..\..\..\OneDrive\Dokument\Utbildning\.NET\TDD\Inlämning 2\G4HE_tests.xlsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +24,14 @@ Global
 		{7179D757-B22A-458C-BA8A-F56720F99742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7179D757-B22A-458C-BA8A-F56720F99742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7179D757-B22A-458C-BA8A-F56720F99742}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7C0C397-7C37-44E8-93EC-A3999D27F43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7C0C397-7C37-44E8-93EC-A3999D27F43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7C0C397-7C37-44E8-93EC-A3999D27F43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7C0C397-7C37-44E8-93EC-A3999D27F43B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{768DC942-B1DE-4B29-B22B-F62A1E92E38F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{768DC942-B1DE-4B29-B22B-F62A1E92E38F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{768DC942-B1DE-4B29-B22B-F62A1E92E38F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{768DC942-B1DE-4B29-B22B-F62A1E92E38F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99B5AE7-F488-4F35-982B-B1EA176FD9E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99B5AE7-F488-4F35-982B-B1EA176FD9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99B5AE7-F488-4F35-982B-B1EA176FD9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99B5AE7-F488-4F35-982B-B1EA176FD9E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{699E9F93-D1BC-499B-B864-6722B95EBC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699E9F93-D1BC-499B-B864-6722B95EBC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699E9F93-D1BC-499B-B864-6722B95EBC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699E9F93-D1BC-499B-B864-6722B95EBC9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
