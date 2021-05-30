@@ -45,7 +45,7 @@ namespace G4HE.Controllers
             do
             {
                 FillInForm("income");
-                BudgetCalculation._Income.Add(new Income(name, tag, amount));
+                BudgetCalculation._Income.Add(new Income(name, amount));
                 KeepGoing("income");
                 index++;
             } while (_continue == "yes");
