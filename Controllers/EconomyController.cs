@@ -190,7 +190,8 @@ namespace G4HE.Controllers
         private static void CalculateResults()
         {
             BudgetCalculation.PayBills();
-            BudgetCalculation.CalculateUnexpectedAndSavings();
+            BudgetCalculation.CalculateSavings();
+            BudgetCalculation.CalculateUnexpectedExpenses();
         }
 
         private static void SetValues(out float totalIncome, out float totalExpenses, out float moneyLeft, out float saving,
