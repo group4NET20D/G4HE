@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using G4privateEconomyClassLibrary.EconomyPlanner;
+using System;
 using System.Threading;
-using System.Threading.Channels;
-using G4privateEconomyClassLibrary.EconomyPlanner;
 
 namespace G4HE.Views.Menus
 {
@@ -20,7 +18,7 @@ namespace G4HE.Views.Menus
             Console.WindowHeight = 30;
             Console.WindowWidth = 120;
             Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
 
             bool loop = true;
             while (loop)
@@ -45,7 +43,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
                 if (BudgetCalculation._PaidExpenses.Count > 0)
                 {
-                    Console.WriteLine($"                                    Paid expenses:");
+                    Console.WriteLine($"                                    \nPaid expenses:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._PaidExpenses)
                     {
@@ -58,7 +56,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                 Thread.Sleep(1500);
                 if (BudgetCalculation._FailedExpenses.Count > 0)
                 {
-                    Console.WriteLine($"                                    Failed to pay:");
+                    Console.WriteLine($"                                    \nFailed to pay:");
                     index = 1;
                     foreach (var bill in BudgetCalculation._FailedExpenses)
                     {
@@ -66,7 +64,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     }
                 }
                 Thread.Sleep(1500);
-                Console.WriteLine($"                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.Savings()}kr");
+                Console.WriteLine($"\n                                    {BudgetCalculation._Saving.Name}: {BudgetCalculation.Savings()}kr");
                 Thread.Sleep(1500);
                 Console.WriteLine($"                                    {BudgetCalculation._UnexpectedExpense.Name}: {BudgetCalculation.UnexpectedExpenses()}kr");
                 Thread.Sleep(1500);
