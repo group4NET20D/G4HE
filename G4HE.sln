@@ -11,7 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "G4privateEconomyClassLibrar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E8CE1AA-EDFE-4138-B814-47FF45FF33D4}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\OneDrive\Dokument\Utbildning\.NET\TDD\Inlämning 2\G4HE_tests.xlsx = ..\..\..\OneDrive\Dokument\Utbildning\.NET\TDD\Inlämning 2\G4HE_tests.xlsx
+		..\..\..\Documents\Utbildning\.NET\TDD\Inlämning 2\G4HE_tests.xlsx = ..\..\..\Documents\Utbildning\.NET\TDD\Inlämning 2\G4HE_tests.xlsx
+		..\..\..\Documents\Utbildning\.NET\TDD\Inlämning 2\Grupp 4 medlemmar.txt = ..\..\..\Documents\Utbildning\.NET\TDD\Inlämning 2\Grupp 4 medlemmar.txt
 	EndProjectSection
 EndProject
 Global
