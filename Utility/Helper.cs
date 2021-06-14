@@ -40,8 +40,10 @@ namespace G4HE.Utility
                         if (success) numberList.Add(nr.ToString());
                         else if (c is '.' or ',') numberList.Add(",");
                     }
+                    var number = float.Parse(Join<string>(Empty, numberList));
+                    if(number is < 0 or > 100) continue;
 
-                    return float.Parse(Join<string>(Empty, numberList));
+                    return number;
                 }
             }
         }
