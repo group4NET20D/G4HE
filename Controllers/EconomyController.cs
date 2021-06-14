@@ -4,6 +4,7 @@ using G4HE.Views.Print;
 using G4privateEconomyClassLibrary.EconomyPlanner;
 using G4privateEconomyClassLibrary.EconomyPlanner.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace G4HE.Controllers
@@ -29,6 +30,7 @@ namespace G4HE.Controllers
         {
             SetIncome();
             SetExpenditure();
+            BudgetCalculation.Saving = Helper.SeparateNumbersFromString();
             BudgetCalculation.PayBills();
             SetValues(out var totalIncome, out var totalExpenses, out var moneyLeft, out var saving, out var unexpectedExpense);
             LogResults(totalIncome, totalExpenses, saving, unexpectedExpense, moneyLeft);

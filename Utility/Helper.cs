@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using static System.Int32;
+using static System.String;
+
 
 namespace G4HE.Utility
 {
@@ -12,6 +15,47 @@ namespace G4HE.Utility
         private static bool Success;
         private static string Input;
         private static int Number;
+
+        /// <summary>
+        /// Helps to separate text into numbers.
+        /// Example:
+        /// string input = test10,5%test
+        /// var number = SeparateNumbersFromString(input)
+        /// number == 10,5
+        /// </summary>
+        /// <param name="str">Input to decipher.</param>
+        /// <returns>Float.</returns>
+        internal static float SeparateNumbersFromString()
+        {
+            while (true)
+            {
+                SetSavingAmount();
+                var input = Console.ReadLine()?.Trim();
+                {
+                    List<string> numberList = new();
+                    if (input is null or "") continue;
+                    foreach (var c in input.ToCharArray())
+                    {
+                        var success = int.TryParse(c.ToString(), out var nr);
+                        if (success) numberList.Add(nr.ToString());
+                        else if (c is '.' or ',') numberList.Add(",");
+                    }
+
+                    return float.Parse(Join<string>(Empty, numberList));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Asks user to enter how many % they want to save of money left.
+        /// </summary>
+        private static void SetSavingAmount()
+        {
+            Console.WriteLine("\nHow many % of your money left would you like to save?");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("% Amount %: ");
+            Console.ResetColor();
+        }
 
         /// <summary>
         /// Get user input as an integer.
